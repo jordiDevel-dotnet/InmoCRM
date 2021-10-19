@@ -1,9 +1,9 @@
-﻿using InmoCRM.Api.Models;
+﻿using InmoCRM.Models.Crud;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace InmoCRM.Api.Repositories
+namespace InmoCRM.Repositories.Crud
 {
     public abstract class Repository<TEntity, TContext> : IRepository<TEntity>
         where TEntity : class, IEntity

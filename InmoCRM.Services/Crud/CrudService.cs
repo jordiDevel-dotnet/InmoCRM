@@ -1,9 +1,9 @@
-﻿using InmoCRM.Api.Models;
-using InmoCRM.Api.Repositories;
+﻿using InmoCRM.Models.Crud;
+using InmoCRM.Repositories.Crud;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace InmoCRM.Api.Services
+namespace InmoCRM.Services.Crud
 {
     public abstract class CrudService<TEntity, TRepository> : ICrudService<TEntity>
         where TEntity : class, IEntity

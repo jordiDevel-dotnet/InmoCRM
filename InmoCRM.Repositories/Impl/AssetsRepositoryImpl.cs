@@ -1,7 +1,8 @@
-﻿using InmoCRM.Api.Config;
-using InmoCRM.Api.Models;
+﻿using InmoCRM.Models;
+using InmoCRM.Repositories.Config;
+using InmoCRM.Repositories.Crud;
 
-namespace InmoCRM.Api.Repositories.Impl
+namespace InmoCRM.Repositories.Impl
 {
     public class AssetsRepositoryImpl : Repository<Asset, InmoCRMContext>, IAssetsRepository
     {

@@ -1,9 +1,9 @@
-﻿using InmoCRM.Api.Models;
+﻿using InmoCRM.Models;
 using Microsoft.EntityFrameworkCore;
 
 #nullable disable
 
-namespace InmoCRM.Api.Config
+namespace InmoCRM.Repositories.Config
 {
     public partial class InmoCRMContext : DbContext
     {

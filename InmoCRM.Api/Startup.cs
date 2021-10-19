@@ -1,8 +1,8 @@
-using InmoCRM.Api.Config;
-using InmoCRM.Api.Repositories;
-using InmoCRM.Api.Repositories.Impl;
-using InmoCRM.Api.Services;
-using InmoCRM.Api.Services.Impl;
+using InmoCRM.Repositories;
+using InmoCRM.Repositories.Config;
+using InmoCRM.Repositories.Impl;
+using InmoCRM.Services;
+using InmoCRM.Services.Impl;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

@@ -1,6 +1,7 @@
-﻿using System;
+﻿using InmoCRM.Models.Crud;
+using System;
 
-namespace InmoCRM.Api.Models
+namespace InmoCRM.Models
 {
     public class Asset : IEntity
     {

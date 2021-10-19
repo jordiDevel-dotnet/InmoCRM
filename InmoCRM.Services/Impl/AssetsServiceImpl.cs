@@ -1,7 +1,8 @@
-﻿using InmoCRM.Api.Models;
-using InmoCRM.Api.Repositories;
+﻿using InmoCRM.Models;
+using InmoCRM.Repositories;
+using InmoCRM.Services.Crud;
 
-namespace InmoCRM.Api.Services.Impl
+namespace InmoCRM.Services.Impl
 {
     public class AssetsServiceImpl : CrudService<Asset, IAssetsRepository>, IAssetsService
     {

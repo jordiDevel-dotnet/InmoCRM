@@ -1,10 +1,10 @@
-﻿using InmoCRM.Api.Models;
+﻿using InmoCRM.Models.Crud;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace InmoCRM.Api.Repositories
+namespace InmoCRM.Services.Crud
 {
-    public interface IRepository<T> where T : class, IEntity
+    public interface ICrudService<T> where T : class, IEntity
     {
         Task<List<T>> GetAll();
         Task<T> Get(int id);

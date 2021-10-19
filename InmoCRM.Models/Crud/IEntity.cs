@@ -1,4 +1,4 @@
-﻿namespace InmoCRM.Api.Models
+﻿namespace InmoCRM.Models.Crud
 {
     public interface IEntity
     {

@@ -1,5 +1,5 @@
-﻿using InmoCRM.Api.Models;
-using InmoCRM.Api.Services;
+﻿using InmoCRM.Models;
+using InmoCRM.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InmoCRM.Api.Controllers

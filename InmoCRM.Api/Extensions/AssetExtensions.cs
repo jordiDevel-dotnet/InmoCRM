@@ -1,5 +1,5 @@
 ﻿using InmoCRM.Api.Dtos;
-using InmoCRM.Api.Models;
+using InmoCRM.Models;
 
 namespace InmoCRM.Api.Extensions
 {

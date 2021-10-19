@@ -1,5 +1,5 @@
-﻿using InmoCRM.Api.Models;
-using InmoCRM.Api.Services;
+﻿using InmoCRM.Models.Crud;
+using InmoCRM.Services.Crud;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
