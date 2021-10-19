@@ -1,21 +1,13 @@
 ﻿using InmoCRM.Api.Models;
 using InmoCRM.Api.Repositories;
-using System.Collections.Generic;
 
 namespace InmoCRM.Api.Services.Impl
 {
-    public class AssetsServiceImpl : IAssetsService
+    public class AssetsServiceImpl : CrudService<Asset, IAssetsRepository>, IAssetsService
     {
-        private readonly IAssetsRepository repository;
-
-        public AssetsServiceImpl(IAssetsRepository repository)
+        public AssetsServiceImpl(IAssetsRepository repository) : base(repository)
         {
-            this.repository = repository;
-        }
 
-        public IEnumerable<Asset> GetAssets()
-        {
-            return this.repository.GetAll();
         }
     }
 }

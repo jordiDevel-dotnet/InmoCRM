@@ -29,7 +29,6 @@ namespace InmoCRM.Api
 
             services.AddTransient<IAssetsService, AssetsServiceImpl>();
 
-            services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IAssetsRepository, AssetsRepositoryImpl>();
 
             services.AddControllers();

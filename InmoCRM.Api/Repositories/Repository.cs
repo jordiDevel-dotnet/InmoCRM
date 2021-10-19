@@ -1,69 +1,56 @@
-﻿using InmoCRM.Api.Config;
-using System;
-using System.Linq;
+﻿using InmoCRM.Api.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace InmoCRM.Api.Repositories
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, new()
+    public abstract class Repository<TEntity, TContext> : IRepository<TEntity>
+        where TEntity : class, IEntity
+        where TContext : DbContext
     {
-        protected readonly InmoCRMContext context;
+        private readonly TContext context;
 
-        public Repository(InmoCRMContext context)
+        public Repository(TContext context)
         {
             this.context = context;
         }
-
-        public IQueryable<TEntity> GetAll()
+        public async Task<TEntity> Add(TEntity entity)
         {
-            try
-            {
-                return this.context.Set<TEntity>();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Couldn't retrieve entities: {ex.Message}");
-            }
+            context.Set<TEntity>().Add(entity);
+            await context.SaveChangesAsync();
+            return entity;
         }
 
-        public async Task<TEntity> AddAsync(TEntity entity)
+        public async Task<TEntity> Delete(int id)
         {
+            var entity = await context.Set<TEntity>().FindAsync(id);
             if (entity == null)
             {
-                throw new ArgumentNullException($"{nameof(AddAsync)} entity must not be null");
-            }
-
-            try
-            {
-                await this.context.AddAsync(entity);
-                await this.context.SaveChangesAsync();
-
                 return entity;
             }
-            catch (Exception ex)
-            {
-                throw new Exception($"{nameof(entity)} could not be saved: {ex.Message}");
-            }
+
+            context.Set<TEntity>().Remove(entity);
+            await context.SaveChangesAsync();
+
+            return entity;
         }
 
-        public async Task<TEntity> UpdateAsync(TEntity entity)
+        public async Task<TEntity> Get(int id)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException($"{nameof(AddAsync)} entity must not be null");
-            }
+            return await context.Set<TEntity>().FindAsync(id);
+        }
 
-            try
-            {
-                this.context.Update(entity);
-                await this.context.SaveChangesAsync();
+        public async Task<List<TEntity>> GetAll()
+        {
+            return await context.Set<TEntity>().ToListAsync();
+        }
 
-                return entity;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"{nameof(entity)} could not be updated: {ex.Message}");
-            }
+        public async Task<TEntity> Update(TEntity entity)
+        {
+            context.Entry(entity).State = EntityState.Modified;
+            await context.SaveChangesAsync();
+            return entity;
         }
     }
 }
